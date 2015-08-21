@@ -3,7 +3,11 @@ import json
 
 def load_csv(filename):
     with open(filename) as f:
-        df = pandas.read_csv(f)
+        df = load_from(f)
+    return df
+
+def load_from(f):
+    df = pandas.read_csv(f)
 
     subject_data = df['subject_data'].apply(lambda cell: json.loads(cell).values()[0])
     add_columns(df, subject_data, prefix="subject_data")
