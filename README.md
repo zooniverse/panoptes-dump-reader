@@ -8,5 +8,6 @@ pip install -r requirements.txt
 
 ```python
 from panoptes import classifications
-classifications.load_csv('path/to/classifications_dump.csv')
+pandas_data_frame = classifications.load_csv('path/to/classifications_dump.csv')
+pandas_data_frame.to_csv('path/to/exploded_classifications_dump.csv')
 ```
